@@ -17,14 +17,23 @@
 
 #ifndef ROSIDL_TYPESUPPORT_SINGLE_TYPESUPPORT
 
+// TODO: verify whether this is necessary
+#ifndef OLD_COMPILER_NO_SUPPORT
 #include <cstddef>
 #include <cstdio>
 #include <cstring>
+#else
+#include <stddef.h>
+#include <stdio.h>
+#include <string.h>
+#endif
 
+#ifndef OLD_COMPILER_NO_SUPPORT
 #include <memory>
 #include <stdexcept>
 #include <list>
 #include <string>
+#endif
 
 #include "rcpputils/find_library.hpp"
 #include "rcpputils/shared_library.hpp"
@@ -122,7 +131,11 @@ get_typesupport_handle_function(
     handle->typesupport_identifier);
 #endif // ROSIDL_TYPESUPPORT_SINGLE_TYPESUPPORT
 
+#ifndef OLD_COMPILER_NO_SUPPORT
   return nullptr;
+#else
+  return NULL;
+#endif
 }
 
 }  // namespace rosidl_typesupport_c

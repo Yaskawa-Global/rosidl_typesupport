@@ -15,7 +15,11 @@
 #ifndef ROSIDL_TYPESUPPORT_C__TYPE_SUPPORT_MAP_H_
 #define ROSIDL_TYPESUPPORT_C__TYPE_SUPPORT_MAP_H_
 
+#ifndef OLD_COMPILER_NO_SUPPORT
 #include <cstddef>
+#else
+#include <stddef.h>
+#endif
 
 #ifdef __cplusplus
 extern "C"
