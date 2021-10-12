@@ -48,7 +48,7 @@ get_typesupport_handle_function(
       typedef const TypeSupport * (* funcSignature)(void);
 #ifndef ROSIDL_TYPESUPPORT_STATIC_TYPESUPPORT
       void * sym = handle_shared_library_from_name(map, i, identifier);
-      if (nullptr == sym) {
+      if (NULL == sym) {
         continue;
       }
       funcSignature func = reinterpret_cast<funcSignature>(sym);
@@ -62,7 +62,7 @@ get_typesupport_handle_function(
   RCUTILS_SET_ERROR_MSG_WITH_FORMAT_STRING(
     "Handle's typesupport identifier (%s) is not supported by this library",
     handle->typesupport_identifier);
-  return nullptr;
+  return NULL;
 }
 
 }  // namespace rosidl_typesupport_c
